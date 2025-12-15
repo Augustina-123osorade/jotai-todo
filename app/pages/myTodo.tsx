@@ -27,13 +27,13 @@ export default function MyTodo() {
   
 
   return (
-    <div className=" py-10  px-30 ">
-      <h1 className="text-center font-bold text-3xl text-[#797dc2]"> TODO APP</h1>
-      <button onClick={() => setIsModalOpen(true)} className="border rounded px-5 py-3 bg-[#636df3] text-white">Add Task</button>
+    <div className=" py-20 px-6 md:px-16 lg:px-30 lg:py-10 max-w-7xl mx-auto">
+      <h1 className="text-center font-bold text-3xl  text-[#797dc2] mb-4 sm:mb-6"> TODO APP</h1>
+      <button onClick={() => setIsModalOpen(true)} className="border rounded px-5 py-3 bg-[#636df3] text-white ">Add Task</button>
       <div className="bg-[#ededf7] border border-[#ededf7] rounded-xl p-5 mt-5">
         
 
-      <ul className="flex flex-col gap-5" >
+      <ul className="flex flex-col gap-5 " >
         {
          todo.map((item) => (
           <li key={item.id} className="border border-[#ffffff] p-3 mb-2 rounded-l flex items-center gap-3 bg-[#ffffff]">
@@ -60,6 +60,7 @@ export default function MyTodo() {
                 <button onClick={()=> {
                     deleteTodo(item.id)
                 }}
+                aria-label="Delete todo"
                 className="border border-[#ededf7] p-1 bg-[#ededf7] rounded cursor-pointer">
                     <MdDelete />
                 </button>
@@ -69,6 +70,7 @@ export default function MyTodo() {
                     setIsModalOpen(true);
 
                 }}
+                aria-label= "Edit todo"
                 className="border border-[#ededf7] p-1 bg-[#ededf7] rounded cursor-pointer">
                     <CiEdit />
                 </button>

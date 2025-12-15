@@ -42,6 +42,30 @@ export default function Modal() {
             }
                 
             }
+            onKeyDown={(e) => {
+                if(e.key === 'Enter'){
+                    if(isEditing){
+                    if(editInput.trim()){
+                        setTodo(
+                            todo.map((t)=> t.id === editTodoId ? {... t, text: editInput}: t)
+                        );
+                        setEditInput('');
+                        setEditTodoId(null);
+                        setIsModalOpen(false);
+                    }
+
+                } else {
+                    if (input.trim()) {
+                  setTodo([
+                    ...todo,
+                    { id: crypto.randomUUID(), text: input, completed: false, createdAt: new Date().toLocaleString(),},
+                  ]);
+                  setInput("");
+                  setIsModalOpen(false);
+                }
+              }
+                }
+            }}
             placeholder={isEditing ? "Edit your Todo": "Enter your Todo"}
             className="w-full border rounded p-2 mb-4"
           />
